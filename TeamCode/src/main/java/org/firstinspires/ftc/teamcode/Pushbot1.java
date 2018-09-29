@@ -1,16 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-public class Pushbot1 extends OpMode
-{
-    @Override
-    public void init() {
 
-    }
+public class Pushbot1 extends LinearOpMode{
 
     @Override
-    public void loop() {
+    public void runOpMode() throws InterruptedException {
 
     }
 }
+
+

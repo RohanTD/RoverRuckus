@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class advancedandroid extends LinearOpMode {
+public class FinalTeleOp extends LinearOpMode {
 
     String liftServoName = "lift_servo";
     String frontRightMotorName = "front_right";
@@ -62,19 +62,20 @@ public class advancedandroid extends LinearOpMode {
             }
 
 
-                frontRight.setPower(g1.right_stick_y);
-                backRight.setPower(g1.right_stick_y);
-                frontLeft.setPower(g1.left_stick_y);
-                backLeft.setPower(g1.left_stick_y);
 
-                liftMotor.setPower(g2.right_stick_y);
-                turnArm.setPower(g2.left_stick_x);
+            frontRight.setPower(g1.right_stick_y);
+            backRight.setPower(g1.right_stick_y);
+            frontLeft.setPower(g1.left_stick_y);
+            backLeft.setPower(g1.left_stick_y);
+
+            liftMotor.setPower(g2.right_stick_y);
+            turnArm.setPower(g2.left_stick_x);
 
 
 
 
-                // /run constantly till you stop
-                //i.e. update motor speeds w/ joystick
+            // /run constantly till you stop
+            //i.e. update motor speeds w/ joystick
 
 
 

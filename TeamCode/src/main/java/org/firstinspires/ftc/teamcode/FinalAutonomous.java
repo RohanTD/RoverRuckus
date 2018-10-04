@@ -1,12 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class advancedandroid extends LinearOpMode {
+public class FinalAutonomous extends LinearOpMode{
 
     String liftServoName = "lift_servo";
     String frontRightMotorName = "front_right";
@@ -29,8 +28,6 @@ public class advancedandroid extends LinearOpMode {
     Gamepad g2 = gamepad2;
     @Override
     public void runOpMode() throws InterruptedException {
-        //init
-        //i.e. set up motors
         String liftServoName = "lift_servo";
         String frontRightMotorName = "front_right";
         String backrightMotorName = "right_drive";
@@ -48,51 +45,23 @@ public class advancedandroid extends LinearOpMode {
         DcMotor liftMotor = hardwareMap.dcMotor.get(liftMotorName);
         DcMotor turnArm = hardwareMap.dcMotor.get(turnArmName);
 
-        Gamepad g1 = gamepad1;
-        Gamepad g2 = gamepad2;
+        while(opModeIsActive()){
+            moveForward(5);
+        }
 
-        waitForStart(); //wait for start on phone
+    }
 
-
-        //after you press start
-        while (opModeIsActive()) {
-
-            if (g2.a) {
-                drop();
-            }
-
-
-                frontRight.setPower(g1.right_stick_y);
-                backRight.setPower(g1.right_stick_y);
-                frontLeft.setPower(g1.left_stick_y);
-                backLeft.setPower(g1.left_stick_y);
-
-                liftMotor.setPower(g2.right_stick_y);
-                turnArm.setPower(g2.left_stick_x);
-
-
-
-
-                // /run constantly till you stop
-                //i.e. update motor speeds w/ joystick
-
-
-
-            //runs when you press stop
-            //i.e. stop all motors
-            frontRight.setPower(0);
+    public void moveForward(double time) {
+        resetStartTime();
+        backLeft.setPower(1);
+        backRight.setPower(1);
+        frontLeft.setPower(1);
+        frontRight.setPower(1);
+        if (time < 1000*(System.currentTimeMillis()) ) {
+            backLeft.setPower(0);
             backRight.setPower(0);
             frontLeft.setPower(0);
-            backLeft.setPower(0);
-            liftServo.setPosition(0);
-            liftMotor.setPower(0);
-            turnArm.setPower(0);
-
-
+            frontRight.setPower(0);
         }
-    }
-    public void drop(){
-        liftServo.setPosition(1);
-
     }
 }

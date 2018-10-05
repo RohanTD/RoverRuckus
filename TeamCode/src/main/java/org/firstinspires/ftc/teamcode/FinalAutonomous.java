@@ -44,9 +44,14 @@ public class FinalAutonomous extends LinearOpMode{
         DcMotor frontLeft = hardwareMap.dcMotor.get(frontleftMotorName);
         DcMotor liftMotor = hardwareMap.dcMotor.get(liftMotorName);
         DcMotor turnArm = hardwareMap.dcMotor.get(turnArmName);
-
+waitForStart();
         while(opModeIsActive()){
+            drop();
             moveForward(5);
+            senseJewels();
+            depositTeamMarker();
+
+
         }
 
     }
@@ -64,4 +69,18 @@ public class FinalAutonomous extends LinearOpMode{
             frontRight.setPower(0);
         }
     }
+    public void drop() throws InterruptedException {
+
+        liftMotor.setPower(1);
+        wait(2000);
+        liftMotor.setPower(0);
+        liftServo.setPosition(1);
+}
+public void depositTeamMarker(){
+
+}
+public void senseJewels(){
+
+}
+
 }

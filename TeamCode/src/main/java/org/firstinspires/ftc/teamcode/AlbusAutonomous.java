@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class FinalAutonomous extends LinearOpMode{
+public class AlbusAutonomous extends LinearOpMode {
 
     String liftServoName = "lift_servo";
     String frontRightMotorName = "front_right";
@@ -26,6 +26,7 @@ public class FinalAutonomous extends LinearOpMode{
 
     Gamepad g1 = gamepad1;
     Gamepad g2 = gamepad2;
+
     @Override
     public void runOpMode() throws InterruptedException {
         String liftServoName = "lift_servo";
@@ -44,8 +45,8 @@ public class FinalAutonomous extends LinearOpMode{
         DcMotor frontLeft = hardwareMap.dcMotor.get(frontleftMotorName);
         DcMotor liftMotor = hardwareMap.dcMotor.get(liftMotorName);
         DcMotor turnArm = hardwareMap.dcMotor.get(turnArmName);
-waitForStart();
-        while(opModeIsActive()){
+        waitForStart();
+        while (opModeIsActive()) {
             drop();
             moveForward(5);
             senseJewels();
@@ -62,25 +63,42 @@ waitForStart();
         backRight.setPower(1);
         frontLeft.setPower(1);
         frontRight.setPower(1);
-        if (time < 1000*(System.currentTimeMillis()) ) {
+        if (time < 1000 * (System.currentTimeMillis())) {
             backLeft.setPower(0);
             backRight.setPower(0);
             frontLeft.setPower(0);
             frontRight.setPower(0);
         }
     }
+
     public void drop() throws InterruptedException {
 
         liftMotor.setPower(1);
         wait(2000);
         liftMotor.setPower(0);
         liftServo.setPosition(1);
-}
-public void depositTeamMarker(){
+    }
 
-}
-public void senseJewels(){
+    public void depositTeamMarker() {
 
-}
+    }
 
+    public void senseJewels() {
+
+    }
+
+    public void moveBackward(double time) {
+        resetStartTime();
+        backLeft.setPower(-1);
+        backRight.setPower(-1);
+        frontLeft.setPower(-1);
+        frontRight.setPower(-1);
+        if (time < 1000 * (System.currentTimeMillis())) {
+            backLeft.setPower(0);
+            backRight.setPower(0);
+            frontLeft.setPower(0);
+            frontRight.setPower(0);
+
+        }
+    }
 }

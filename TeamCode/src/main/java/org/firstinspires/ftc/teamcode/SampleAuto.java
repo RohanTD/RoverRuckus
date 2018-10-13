@@ -48,7 +48,7 @@ public class SampleAuto extends LinearOpMode {
             double bVal = colorSensor.blue();
             double gVal = colorSensor.green();
 
-            if (rVal > 175 && gVal > 175 && bVal < 200){
+            if (rVal > 200 && gVal > 200 && bVal < 200){
                 //yellow
                 //push forward
                 goForwardTime(5000);

@@ -105,11 +105,11 @@ public class AlbusTeleop extends LinearOpMode {
 
     public void moveForward(double time) {
         resetStartTime();
-        backLeft.setPower(1);
+        backLeft.setPower(-1);
         backRight.setPower(1);
-        frontLeft.setPower(1);
+        frontLeft.setPower(-1);
         frontRight.setPower(1);
-        if (time < 1000 * (System.currentTimeMillis())) {
+        if (time <(  (System.currentTimeMillis())/1000)) {
             backLeft.setPower(0);
             backRight.setPower(0);
             frontLeft.setPower(0);
@@ -118,11 +118,11 @@ public class AlbusTeleop extends LinearOpMode {
     }
     public void moveBackward(double time) {
         resetStartTime();
-        backLeft.setPower(-1);
+        backLeft.setPower(1);
         backRight.setPower(-1);
-        frontLeft.setPower(-1);
+        frontLeft.setPower(1);
         frontRight.setPower(-1);
-        if (time < 1000 * (System.currentTimeMillis())) {
+        if (time < ( (System.currentTimeMillis())/1000) ){
             backLeft.setPower(0);
             backRight.setPower(0);
             frontLeft.setPower(0);

@@ -58,44 +58,42 @@ public class AlbusTeleop extends LinearOpMode {
 
             //   if (g2.a) {
             //     drop();
+
+
+            frontRight.setPower(g1.right_stick_y);
+            backRight.setPower(g1.right_stick_y);
+            frontLeft.setPower(g1.left_stick_y);
+            backLeft.setPower(g1.left_stick_y);
+
+            armMotor.setPower(g2.left_stick_y);
+            collector.setPower(g2.right_stick_y);
+
+
+            // /run constantly till you stop
+            //i.e. update motor speeds w/ joystick
+
+
+            //runs when you press stop
+            //i.e. stop all motors
+            frontRight.setPower(0);
+            backRight.setPower(0);
+            frontLeft.setPower(0);
+            backLeft.setPower(0);
+            //   liftServo.setPosition(0);
+            armMotor.setPower(0);
+            collector.setPower(0);
         }
-
-
-        frontRight.setPower(g1.right_stick_y);
-        backRight.setPower(g1.right_stick_y);
-        frontLeft.setPower(g1.left_stick_y);
-        backLeft.setPower(g1.left_stick_y);
-
-        armMotor.setPower(g2.left_stick_y);
-        collector.setPower(g2.right_stick_y);
-
-
-        // /run constantly till you stop
-        //i.e. update motor speeds w/ joystick
-
-
-        //runs when you press stop
-        //i.e. stop all motors
-        frontRight.setPower(0);
-        backRight.setPower(0);
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        //   liftServo.setPosition(0);
-        armMotor.setPower(0);
-        collector.setPower(0);
 
 
     }
 
     public void deposit() {
-        previousStateOfA = g2.a;
-        collector.setPower(1);
-        if (g2.a && previousStateOfA != false) {
-            collector.setPower(0);
-        }
-            moveBackward(0.5);
+        PreviousStateOfX = g2.x;
+        motorMover(collector);
+        moveBackward(0.5);
         motorMover(armMotor);
-        collector.setPower(-1);
+        motorMoverBack(collector);
+        motorMoverBack(armMotor);
 
 
 
@@ -135,6 +133,13 @@ public class AlbusTeleop extends LinearOpMode {
     public void motorMover(DcMotor motor) {
         PreviousStateOfX = g2.x;
         motor.setPower(1);
+        if (g2.x && PreviousStateOfX != false) {
+            motor.setPower(0);
+        }
+    }
+    public void motorMoverBack(DcMotor motor) {
+        PreviousStateOfX = g2.x;
+        motor.setPower(-1);
         if (g2.x && PreviousStateOfX != false) {
             motor.setPower(0);
         }

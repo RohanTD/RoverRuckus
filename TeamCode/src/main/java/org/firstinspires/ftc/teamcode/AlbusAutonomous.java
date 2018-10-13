@@ -51,6 +51,7 @@ public class AlbusAutonomous extends LinearOpMode {
             moveForward(5);
             senseJewels();
             depositTeamMarker();
+            moveBackward(5);
 
 
         }
@@ -80,6 +81,8 @@ public class AlbusAutonomous extends LinearOpMode {
     }
 
     public void depositTeamMarker() {
+        //depositing servo.setPosition(1);
+
 
     }
 
@@ -93,7 +96,7 @@ public class AlbusAutonomous extends LinearOpMode {
         backRight.setPower(-1);
         frontLeft.setPower(-1);
         frontRight.setPower(-1);
-        if (time < 1000 * (System.currentTimeMillis())) {
+        if (time < (1000 * (System.currentTimeMillis()))) {
             backLeft.setPower(0);
             backRight.setPower(0);
             frontLeft.setPower(0);

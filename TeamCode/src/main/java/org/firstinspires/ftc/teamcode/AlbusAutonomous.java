@@ -60,14 +60,7 @@ boolean previousState = false;
         while (opModeIsActive()) {
             //      drop();
 
-            if (colorSensor.red() > 200 && colorSensor.blue() > 200 && colorSensor.green() > 200) {
-goForwardTime(1000);
-//                moveBackward(1.5);
-//                turnRight(0.5);
-//                turnLeft(0.5);
 
-
-            }
 
             }
 
